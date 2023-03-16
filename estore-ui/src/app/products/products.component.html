@@ -1,0 +1,21 @@
+<nav>
+
+  <a routerLink="/dashboard">Dashboard</a>
+  <br>
+  <a routerLink="/products">Products</a>
+  <br>
+  <a routerLink="/cart">Cart</a>
+  <br>
+  <a routerLink="/login">Logout</a>
+</nav>
+<app-product-search></app-product-search>
+<h2>Available Products</h2>
+<ul class="products">
+  
+  <li *ngFor="let product of products">
+    <a routerLink="/detail/{{product.id}}">
+      <span class="badge">{{product.id}}</span> {{product.name}}
+      
+</a>
+
+

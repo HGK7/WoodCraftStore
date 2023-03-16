@@ -1,0 +1,35 @@
+<nav>
+
+  <a routerLink="/dashboard">Dashboard</a>
+  <br>
+  <a routerLink="/products">Products</a>
+  <br>
+  <a routerLink="/cart">Cart</a>
+  <br>
+  <a routerLink="/login">Logout</a>
+</nav>
+<div *ngIf="product">
+    <h2>{{product.name | uppercase}} Details</h2>
+    <div>id: {{product.id}}</div>
+    <div>Price: {{product.price}}</div>
+    <div>avaliable wood types: {{product.woodType}}</div>
+    <div>stock: {{product.stock}}</div>
+    <br>
+    
+    <form>
+      <p>Please select the wood type you would like to add to cart:</p>
+      <input type="radio" id="{{product.woodType[0]}}" onchange="document.getElementById('quanity-div').style.display = 'block'; " [(ngModel)]="chosenWoodType" name="woodtype" value="{{product.woodType[0]}}">
+      <label for="{{product.woodType[0]}}">{{product.woodType[0]}}</label><br>
+      <input type="radio" id="{{product.woodType[1]}}" onchange="document.getElementById('quanity-div').style.display = 'block'; " [(ngModel)]="chosenWoodType" name="woodtype" value="{{product.woodType[1]}}">
+      <label for="{{product.woodType[1]}}">{{product.woodType[1]}}</label><br>
+      <input type="radio" id="{{product.woodType[2]}}" onchange="document.getElementById('quanity-div').style.display = 'block'; " [(ngModel)]="chosenWoodType" name="woodtype" value="{{product.woodType[2]}}">
+      <label for="{{product.woodType[2]}}">{{product.woodType[2]}}</label><br>
+      <div id="quanity-div" style="display:none;">
+        <input type="number" min="1" id="quantity" max="{{product.stock}}" value="1" name="chosenQuantity" onchange="document.getElementById('add').style.display = 'inline'; " [(ngModel)]="chosenQuantity">
+        <label for="quantity">Quantity</label>
+        </div>
+    </form>
+    <button type="button" (click)="goBack()">go back</button>
+    <button style="display:none;" type="button" id="add" (click)="addToCart()">Add to Cart</button>
+    
+  </div>

@@ -1,0 +1,1 @@
+[{"name":"Cat","id":1,"price":15,"woodType":["Oak","Birch","Softwood"],"stock":99},{"name":"Dog","id":2,"price":10,"woodType":["Oak","Birch","Softwood"],"stock":99},{"name":"sword","id":8,"price":20,"woodType":["Oak","Birch","Softwood"],"stock":99},{"name":"Swan","id":9,"price":20,"woodType":["Oak","Birch","Softwood"],"stock":99}]

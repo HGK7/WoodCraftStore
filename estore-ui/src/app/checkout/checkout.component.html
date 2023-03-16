@@ -1,0 +1,49 @@
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <br>
+  <a routerLink="/products">Products</a>
+  <br>
+  <a routerLink="/cart">Cart</a>
+  <br>
+  <a routerLink="/login">Logout</a>
+</nav>
+
+<ul class="items">
+  <li *ngFor="let item of items">
+    <a routerLink="/detail/{{item.id}}">
+
+    <span class="badge">{{item.id}}:{{item.name}}
+      woodtype: {{item.woodType}}
+      price: {{item.price}}
+      quantity: {{item.quantity}}
+    </span> 
+   
+    </a>
+  </li>
+
+</ul>
+<p id="total" style="display: none;">Total Price: {{this.total}}</p>
+
+<br/>
+
+<div id="order-details" style="display: none">
+  <input name="Payment" id="cash" type="radio">
+  <label for="cash">Cash On Delivery</label><br>
+  <input name="Payment" id="cash" type="radio" disabled>
+  <label for="cash">Credit card (Currently Unavailable)</label><br>
+  <input for="gift" type="checkbox">
+  <label for="gift" >Order as Gift</label>
+  <br>
+  <label>Address</label>
+  <br/>
+  <textarea></textarea>
+  <br/>
+
+  <button type="button" (click)="Order()"  onClick="alert('Order has been placed')">Order</button>
+</div>
+<button id="totalPrice" type="button" (click)="totalPrice()" onClick="document.getElementById('totalPrice').style.display='none'; document.getElementById('total').style.display='inline';document.getElementById('order-details').style.display='inline'">Proceed</button>
+<br/>
+<button type="button" (click)="goBack()">go back</button>
+
+
+

@@ -1,0 +1,28 @@
+
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <br>
+    <a routerLink="/products">Products</a>
+    <br>
+    <a routerLink="/cart">Cart</a>
+    <br>
+    <a routerLink="/login">Logout</a>
+</nav>
+<app-product-search></app-product-search>
+<ul class="items">
+    <li *ngFor="let item of items">
+      <a routerLink="/detail/{{item.id}}">
+
+      <span class="badge">{{item.id}}:{{item.name}}
+        woodtype: {{item.woodType}}
+        Total cost: {{item.price}}
+        quantity: {{item.quantity}}
+      </span> 
+    </a>
+      <button type="button" class="delete" title="delete item"
+  (click)="delete(item);delete(item)">x</button>
+     
+    
+</ul>
+
+<button type="button" class="checkout-button" (click)="checkOut()">Checkout</button>

@@ -1,0 +1,27 @@
+<a routerLink="/admin-dashboard">Admin Dashboard</a>
+<br>
+<a routerLink="/admin-products">Manage Products</a>
+<br>
+<a routerLink="/login">Logout</a>
+<h2>My Products</h2>
+<app-admin-search></app-admin-search>
+<ul class="products">
+  <li *ngFor="let product of products">
+    <a routerLink="/admin-detail/{{product.id}}">
+      <span class="badge">{{product.id}}</span> {{product.name}}
+      
+    </a>
+    <button type="button" class="delete" title="delete product"
+  (click)="delete(product)">x</button>
+  </li>
+</ul>
+
+<div>
+  <label for="new-product">Product name: </label>
+  <input id="new-product" #productName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(productName.value); productName.value=''">
+    Add product
+  </button>
+</div>
